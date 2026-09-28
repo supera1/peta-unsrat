@@ -1,0 +1,11 @@
+.venv
+.git
+dist
+data/debug
+scripts
+editor.html
+js/editor.js
+NAMA-GEDUNG.csv
+*.md
+.DS_Store
+DJI_*.JPG

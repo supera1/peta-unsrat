@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="openstreetmap-cgimap 2.1.0 (244693 spike-07.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <way id="247020582" visible="true" version="17" changeset="187112716" timestamp="2026-08-08T01:07:47Z" user="warudo" uid="22855163">
+  <nd ref="2538840982"/>
+  <nd ref="2539652416"/>
+  <nd ref="4444977540"/>
+  <nd ref="2539652418"/>
+  <nd ref="2539652420"/>
+  <nd ref="2539652422"/>
+  <nd ref="2539652424"/>
+  <nd ref="2539652426"/>
+  <nd ref="2539652428"/>
+  <nd ref="2538805283"/>
+  <nd ref="2539652430"/>
+  <nd ref="2539652432"/>
+  <nd ref="2539652433"/>
+  <nd ref="8784957389"/>
+  <nd ref="8784957388"/>
+  <nd ref="2539652435"/>
+  <nd ref="2538851469"/>
+  <nd ref="2539652437"/>
+  <nd ref="2646084389"/>
+  <nd ref="2539652439"/>
+  <nd ref="2539652441"/>
+  <nd ref="2539652443"/>
+  <nd ref="2539652445"/>
+  <nd ref="2539652446"/>
+  <nd ref="2539652448"/>
+  <nd ref="2539652450"/>
+  <nd ref="2539652452"/>
+  <nd ref="2539652454"/>
+  <nd ref="2539652455"/>
+  <nd ref="4445027176"/>
+  <nd ref="2539652459"/>
+  <nd ref="2646075115"/>
+  <nd ref="2539652461"/>
+  <nd ref="2539652462"/>
+  <nd ref="2646075113"/>
+  <nd ref="2646075114"/>
+  <nd ref="2646075112"/>
+  <nd ref="2646076665"/>
+  <nd ref="2646076664"/>
+  <nd ref="2646075110"/>
+  <nd ref="2539652464"/>
+  <nd ref="8786266477"/>
+  <nd ref="8786266476"/>
+  <nd ref="8786266478"/>
+  <nd ref="2539652470"/>
+  <nd ref="8786266479"/>
+  <nd ref="2539652472"/>
+  <nd ref="2539652474"/>
+  <nd ref="2539652476"/>
+  <nd ref="12040143058"/>
+  <nd ref="2539652478"/>
+  <nd ref="2538858372"/>
+  <nd ref="2538858371"/>
+  <nd ref="2538840982"/>
+  <tag k="amenity" v="university"/>
+  <tag k="name" v="Universitas Sam Ratulangi"/>
+  <tag k="name:en" v="Sam Ratulangi University"/>
+  <tag k="name:id" v="Universitas Sam Ratulangi"/>
+  <tag k="short_name" v="UNSRAT"/>
+  <tag k="start_date" v="1961"/>
+  <tag k="website" v="https://www.unsrat.ac.id/"/>
+  <tag k="wikipedia" v="en:Sam Ratulangi University"/>
+ </way>
+</osm>

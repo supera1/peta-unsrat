@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Peta Kampus UNSRAT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/leaflet.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="mark">U</div>
+        <div>
+          <h1>Peta Kampus UNSRAT</h1>
+          <p>Universitas Sam Ratulangi</p>
+        </div>
+      </div>
+      <input class="search" id="search" type="search" placeholder="Cari gedung utama…">
+      <p class="meta" id="status">Memuat peta…</p>
+      <div class="list" id="list"></div>
+      <p class="foot">
+        Citra udara drone kampus Bahu.
+        Batas kampus © <a href="https://www.openstreetmap.org/way/247020582">OpenStreetMap</a> contributors.
+      </p>
+    </aside>
+    <main class="stage" id="stage">
+      <div id="map"></div>
+    </main>
+  </div>
+  <script src="vendor/leaflet.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/public.js"></script>
+</body>
+</html>
