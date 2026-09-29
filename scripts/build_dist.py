@@ -15,6 +15,7 @@ FILES = [
     "js/map.js",
     "js/public.js",
     "assets/campus.jpg",
+    "assets/logo-unsrat.png",
     "data/buildings.json",
     "data/names.json",
     "data/campus.json",

@@ -3,3 +3,5 @@ __pycache__/
 data/debug/
 dist/
 .DS_Store
+.env
+data/*.json.tmp

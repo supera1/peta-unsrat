@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Masuk — Editor Peta Kampus UNSRAT</title>
+  <link rel="icon" href="assets/logo-unsrat.png">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="login-body">
+  <main class="login-card">
+    <img class="logo" src="assets/logo-unsrat.png" alt="Lambang Universitas Sam Ratulangi">
+    <h1>Editor peta kampus</h1>
+    <p>Masuk untuk mengubah poligon gedung. Peta publik tetap terbuka.</p>
+    <form method="post" action="/login">
+      <label for="username">Nama pengguna</label>
+      <input id="username" name="username" value="admin" autocomplete="username" required>
+      <label for="password">Kata sandi</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required autofocus>
+      <p class="login-error">__ERROR__</p>
+      <button class="btn btn-gold" type="submit">Masuk</button>
+    </form>
+    <p class="foot"><a href="index.html">Kembali ke peta</a></p>
+  </main>
+</body>
+</html>

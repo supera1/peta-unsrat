@@ -7,27 +7,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo-unsrat.png">
   <link rel="stylesheet" href="vendor/leaflet.css">
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-  <div class="app">
-    <aside class="sidebar">
+  <div class="app app-public">
+    <header class="topbar">
       <div class="brand">
-        <div class="mark">U</div>
+        <img class="logo" src="assets/logo-unsrat.png" alt="Lambang Universitas Sam Ratulangi">
         <div>
           <h1>Peta Kampus UNSRAT</h1>
           <p>Universitas Sam Ratulangi</p>
         </div>
       </div>
-      <input class="search" id="search" type="search" placeholder="Cari gedung utama…">
-      <p class="meta" id="status">Memuat peta…</p>
-      <div class="list" id="list"></div>
+      <div class="search-wrap">
+        <input class="search" id="search" type="search" placeholder="Cari gedung utama…" autocomplete="off">
+        <div class="list" id="list"></div>
+      </div>
+      <p class="meta" id="status" hidden>Memuat peta…</p>
       <p class="foot">
         Citra udara drone kampus Bahu.
         Batas kampus © <a href="https://www.openstreetmap.org/way/247020582">OpenStreetMap</a> contributors.
       </p>
-    </aside>
+    </header>
     <main class="stage" id="stage">
       <div id="map"></div>
     </main>

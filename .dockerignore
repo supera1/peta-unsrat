@@ -2,10 +2,10 @@
 .git
 dist
 data/debug
-scripts
-editor.html
-js/editor.js
+scripts/prepare.py
+scripts/build_dist.py
 NAMA-GEDUNG.csv
+.env
 *.md
 .DS_Store
 DJI_*.JPG

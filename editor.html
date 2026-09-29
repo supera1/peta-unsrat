@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo-unsrat.png">
   <link rel="stylesheet" href="vendor/leaflet.css">
   <link rel="stylesheet" href="css/app.css">
 </head>
@@ -14,7 +15,7 @@
   <div class="app">
     <aside class="sidebar">
       <div class="brand">
-        <div class="mark">E</div>
+        <img class="logo" src="assets/logo-unsrat.png" alt="Lambang Universitas Sam Ratulangi">
         <div>
           <h1>Editor penamaan</h1>
           <p>Satu nama boleh dipakai di beberapa poligon</p>
@@ -27,6 +28,9 @@
         Nama yang sama boleh dipasang di lebih dari satu poligon.
         <a href="index.html">Lihat peta publik</a>
       </p>
+      <form class="logout" method="post" action="/logout">
+        <button type="submit">Keluar</button>
+      </form>
     </aside>
     <main class="stage" id="stage">
       <div class="toolbar">

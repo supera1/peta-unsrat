@@ -28,6 +28,60 @@ html, body {
   height: 100%;
 }
 
+.app-public {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto minmax(0, 1fr);
+  background: linear-gradient(180deg, var(--navy-2), var(--navy) 160px);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  background: transparent;
+  position: relative;
+  z-index: 30;
+}
+
+.topbar .brand { margin-bottom: 0; min-width: 0; }
+
+.topbar .logo { width: 52px; height: 52px; }
+
+.topbar .brand h1 { font-size: 1rem; }
+
+.topbar .search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 460px;
+}
+
+.topbar .search { margin: 0; }
+
+.topbar .list {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  max-height: 280px;
+  overflow: auto;
+  padding: 6px;
+  background: var(--navy-2);
+  border: 1px solid rgba(212, 160, 23, 0.28);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  z-index: 40;
+}
+
+.topbar .list.is-open { display: flex; }
+
+.topbar .foot {
+  margin: 0 0 0 auto;
+  max-width: 240px;
+  text-align: right;
+}
+
 .sidebar {
   background: linear-gradient(180deg, var(--navy-2), var(--navy));
   border-right: 1px solid rgba(212, 160, 23, 0.18);
@@ -44,17 +98,12 @@ html, body {
   margin-bottom: 18px;
 }
 
-.mark {
-  width: 42px;
-  height: 42px;
-  border: 1.5px solid var(--gold);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: var(--gold);
-  font-family: "Fraunces", Georgia, serif;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+.logo {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+  background: transparent;
+  flex-shrink: 0;
 }
 
 .brand h1 {
@@ -136,19 +185,92 @@ html, body {
 
 .foot a { color: var(--gold-2); }
 
+.logout { margin-top: 8px; }
+
+.logout button {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--gold-2);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.68rem;
+}
+
+.login-body {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: min(380px, 100%);
+  background: linear-gradient(180deg, var(--navy-2), var(--navy));
+  border: 1px solid rgba(212, 160, 23, 0.28);
+  border-radius: 18px;
+  padding: 28px 24px 20px;
+}
+
+.login-card h1 {
+  margin: 14px 0 6px;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+.login-card p { margin: 0 0 16px; color: var(--muted); font-size: 0.9rem; }
+
+.login-card label {
+  display: block;
+  margin: 12px 0 6px;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.login-card input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(240, 212, 138, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--paper);
+  padding: 10px 12px;
+}
+
+.login-card input:focus { outline: 2px solid rgba(212, 160, 23, 0.45); }
+
+.login-card .btn { width: 100%; margin-top: 8px; }
+
+.login-error {
+  min-height: 1.2em;
+  margin: 12px 0 0;
+  color: var(--danger);
+  font-size: 0.85rem;
+}
+
+.login-card .foot { text-align: center; }
+
 .stage {
   position: relative;
   min-width: 0;
+  background: var(--navy);
 }
+
+.app-public .stage { background: transparent; }
 
 #map {
   height: 100%;
-  background: #06121f;
+  background: transparent;
   position: relative;
   z-index: 1;
 }
 
-.leaflet-container { background: #06121f; font: inherit; }
+.leaflet-container { background: transparent; font: inherit; }
+
+.app:not(.app-public) #map,
+.app:not(.app-public) .leaflet-container {
+  background: var(--navy);
+}
 
 .toolbar {
   position: absolute;
@@ -303,6 +425,9 @@ html, body {
 }
 
 @media (max-width: 860px) {
-  .app { grid-template-columns: 1fr; grid-template-rows: 38% 62%; }
+  .app:not(.app-public) { grid-template-columns: 1fr; grid-template-rows: 38% 62%; }
   .sidebar { border-right: 0; border-bottom: 1px solid rgba(212, 160, 23, 0.18); }
+  .topbar { flex-wrap: wrap; align-items: flex-start; }
+  .topbar .search-wrap { flex: 1 1 100%; max-width: none; }
+  .topbar .foot { margin-left: 0; max-width: none; text-align: left; }
 }

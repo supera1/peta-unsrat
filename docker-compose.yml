@@ -4,4 +4,6 @@ services:
     image: peta-unsrat
     ports:
       - "8080:80"
+    environment:
+      EDITOR_PASSWORD: ${EDITOR_PASSWORD:-}
     restart: unless-stopped

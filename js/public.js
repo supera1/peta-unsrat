@@ -16,7 +16,6 @@
   const search = document.getElementById("search");
   let activeId = null;
 
-  status.textContent = `${named.length} poligon sudah diberi nama`;
   if (!named.length) {
     const hint = document.createElement("div");
     hint.className = "hint";
@@ -74,27 +73,44 @@
   function render(filter = "") {
     const q = filter.trim().toLowerCase();
     list.innerHTML = "";
+    if (!q) {
+      list.classList.remove("is-open");
+      return;
+    }
+    let shown = 0;
     names.forEach((name) => {
-      if (q && !name.toLowerCase().includes(q) && !(SHORT[name] || "").toLowerCase().includes(q)) return;
+      if (!name.toLowerCase().includes(q) && !(SHORT[name] || "").toLowerCase().includes(q)) return;
       const mapped = named.filter((item) => item.name === name);
+      if (!mapped.length) return;
+      shown += 1;
       const btn = document.createElement("button");
-      btn.className = "item" + (mapped.length ? "" : " is-empty");
+      btn.className = "item";
+      btn.type = "button";
       btn.dataset.name = name;
-      btn.innerHTML = `${name}<small>${mapped.length ? `${mapped.length} poligon di peta` : "Belum diberi poligon"}</small>`;
-      if (mapped.length) {
-        btn.addEventListener("click", () => {
-          const index = nameCursor[name] || 0;
-          const building = mapped[index % mapped.length];
-          nameCursor[name] = index + 1;
-          activate(building, true);
-        });
-      }
+      btn.textContent = name;
+      btn.addEventListener("click", () => {
+        const index = nameCursor[name] || 0;
+        const building = mapped[index % mapped.length];
+        nameCursor[name] = index + 1;
+        activate(building, true);
+        search.value = "";
+        render("");
+      });
       list.appendChild(btn);
     });
+    if (!shown) {
+      const empty = document.createElement("p");
+      empty.className = "meta";
+      empty.textContent = "Gedung tidak ditemukan.";
+      list.appendChild(empty);
+    }
+    list.classList.add("is-open");
   }
 
   search.addEventListener("input", () => render(search.value));
-  render();
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".search-wrap")) render("");
+  });
 })().catch((error) => {
   document.getElementById("status").textContent = error.message;
 });
