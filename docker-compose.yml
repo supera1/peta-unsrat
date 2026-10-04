@@ -6,4 +6,6 @@ services:
       - "8081:80"
     environment:
       EDITOR_PASSWORD: ${EDITOR_PASSWORD:-}
+    volumes:
+      - ./data/buildings.json:/app/data/buildings.json
     restart: unless-stopped

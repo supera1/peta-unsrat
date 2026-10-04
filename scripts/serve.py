@@ -210,9 +210,7 @@ class Handler(SimpleHTTPRequestHandler):
             self.end_headers()
             return
         payload = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
-        temporary = BUILDINGS.with_suffix(".json.tmp")
-        temporary.write_text(payload, encoding="utf-8")
-        temporary.replace(BUILDINGS)
+        BUILDINGS.write_text(payload, encoding="utf-8")
         body = json.dumps({"saved": named, "polygons": len(data)}).encode()
         self.send_response(200)
         self.send_header("Content-Type", "application/json")

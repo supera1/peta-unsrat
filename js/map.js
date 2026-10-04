@@ -78,16 +78,7 @@ function loadBuildings(fileBuildings) {
     if (raw) stored = JSON.parse(raw);
   } catch {}
   if (!Array.isArray(stored) || !stored.length) return fileBuildings;
-  const storedById = new Map(stored.map((item) => [item.id, item]));
-  const fileIds = new Set(fileBuildings.map((item) => item.id));
-  const merged = fileBuildings.map((item) => {
-    const prev = storedById.get(item.id);
-    return prev?.name ? { ...item, name: prev.name } : item;
-  });
-  stored.forEach((item) => {
-    if (!fileIds.has(item.id) && !RETIRED_IDS.has(item.id)) merged.push(item);
-  });
-  return merged;
+  return stored.filter((item) => item && item.id && item.polygon && !RETIRED_IDS.has(item.id));
 }
 
 function saveBuildings(buildings) {
@@ -96,8 +87,6 @@ function saveBuildings(buildings) {
 }
 
 function publishBuildings(buildings) {
-  const host = location.hostname;
-  if (host !== "127.0.0.1" && host !== "localhost") return Promise.resolve(false);
   const named = buildings.filter((item) => item && item.name).length;
   if (!named) return Promise.resolve(false);
   return fetch("/save", {
@@ -106,16 +95,6 @@ function publishBuildings(buildings) {
     body: JSON.stringify(buildings),
   }).then((res) => res.ok).catch(() => false);
 }
-
-publishBuildings((() => {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    const data = raw ? JSON.parse(raw) : [];
-    return Array.isArray(data) ? data : [];
-  } catch {
-    return [];
-  }
-})());
 
 function createMap(el) {
   const bounds = [[0, 0], [IMG.h, IMG.w]];

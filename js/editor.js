@@ -86,11 +86,15 @@
     }
   }
 
-  function persist() {
-    saveBuildings(buildings);
+  async function persist() {
     renderList();
     refreshStyles();
     fillSelect();
+    const saved = await saveBuildings(buildings);
+    if (!saved) {
+      hint.textContent = "Perubahan belum tersimpan di server. Masuk lagi, lalu ulangi.";
+    }
+    return saved;
   }
 
   function addLayer(building) {
@@ -188,8 +192,8 @@
     persist();
     const saved = await publishBuildings(buildings);
     hint.textContent = saved
-      ? "Nama gedung tersimpan ke data/buildings.json."
-      : "Tersimpan di browser. Jalankan server lokal lalu klik Simpan lagi.";
+      ? "Perubahan tersimpan di server."
+      : "Perubahan belum tersimpan di server. Masuk lagi, lalu ulangi.";
   });
   document.getElementById("btn-download").addEventListener("click", () => {
     persist();
